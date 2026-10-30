@@ -1,0 +1,17 @@
+erDiagram
+  institutions ||--o{ profiles : contains
+  profiles ||--o| student_profiles : extends
+  profiles ||--o{ employers : owns
+  profiles ||--o{ supervisors : assigned_as
+  employers ||--o{ opportunities : publishes
+  opportunities ||--o{ applications : receives
+  profiles ||--o{ applications : submits
+  applications ||--o| placements : converts_to
+  placements ||--o{ logbook_entries : records
+  placements ||--o{ attendance : tracks
+  placements ||--o{ visits : schedules
+  placements ||--o{ evaluations : assesses
+  placements ||--o| grades : receives
+  profiles ||--o{ documents : uploads
+  profiles ||--o{ messages : sends
+  profiles ||--o{ notifications : receives

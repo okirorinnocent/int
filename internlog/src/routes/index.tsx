@@ -1,0 +1,16 @@
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowRight, BriefcaseBusiness, ClipboardCheck, GraduationCap, ShieldCheck } from 'lucide-react';
+import { ThemeToggle } from '../components/theme-toggle';
+
+export const Route = createFileRoute('/')({ component: HomePage });
+
+function HomePage(): React.JSX.Element {
+  return <main className="min-h-screen bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-50">
+    <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5"><Link to="/" className="text-xl font-bold tracking-tight">Intern<span className="text-emerald-600">Log</span></Link><div className="flex items-center gap-2"><ThemeToggle /><Link to="/auth" className="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white dark:bg-white dark:text-slate-950">Sign in <ArrowRight className="ml-1 inline h-4 w-4" /></Link></div></header>
+    <section className="mx-auto grid max-w-6xl gap-10 px-5 pb-16 pt-12 md:grid-cols-[1.15fr_.85fr] md:items-center md:pt-24">
+      <div><p className="mb-4 inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-900 dark:bg-emerald-950 dark:text-emerald-300"><ShieldCheck className="h-4 w-4" /> MUST internship ecosystem</p><h1 className="max-w-2xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">Your next opportunity. <span className="text-emerald-600">Your progress, documented.</span></h1><p className="mt-5 max-w-xl text-base leading-7 text-slate-600 dark:text-slate-300">Find placements, keep your logbook, connect with supervisors and turn practical experience into career momentum.</p><div className="mt-8 flex flex-wrap gap-3"><Link to="/auth" className="rounded-xl bg-emerald-700 px-5 py-3 font-semibold text-white hover:bg-emerald-800">Get started <ArrowRight className="ml-2 inline h-4 w-4" /></Link><a href="#features" className="rounded-xl border border-slate-300 px-5 py-3 font-semibold dark:border-slate-700">Explore platform</a></div><p className="mt-4 text-xs text-slate-500">Designed mobile-first for students and employers in Uganda · UGX · Africa/Kampala</p></div>
+      <div className="grid gap-3" id="features">{[{ icon: GraduationCap, title: 'For students', detail: 'Discover internships, apply and maintain your logbook.' }, { icon: BriefcaseBusiness, title: 'For employers', detail: 'Publish opportunities and manage applicants.' }, { icon: ClipboardCheck, title: 'For supervisors', detail: 'Track attendance, review progress and assess performance.' }].map((item) => <article key={item.title} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900"><div className="rounded-xl bg-emerald-50 p-3 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"><item.icon className="h-6 w-6" /></div><div><h2 className="font-bold">{item.title}</h2><p className="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-400">{item.detail}</p></div></article>)}</div>
+    </section>
+    <footer className="border-t border-slate-200 px-5 py-6 text-center text-xs text-slate-500 dark:border-slate-800">InternLog · Mbarara University of Science and Technology · <Link to="/privacy" className="underline">Privacy</Link> · <Link to="/terms" className="underline">Terms</Link></footer>
+  </main>;
+}
